@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://fuchenxuan.cn/GetHosp/ -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="./static/favicon.ico">
+
+    <title>GetHosp</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./static/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/base.min.css" rel="stylesheet">
+    <link href="./static/search.css" rel="stylesheet">
+    <!-- js -->
+    <!-- <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    .jumbotron {
+    text-align: center;
+    background-color: #cf4646;
+    color: #fff;
+    }
+
+
+    form {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 0;
+    }
+
+     .search {
+        border: 2px solid #ffffff;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        font-size: 16px;
+        padding: 13px 30px;
+        border-radius: 0;
+        height: auto;
+        text-align: center;
+    }
+
+   .form-group {
+    position: relative;
+    margin-top: 40px;
+      }
+
+    .footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #aaa;
+    }
+
+    .package-amount{
+      font-size: 14px;
+    }
+    .jumbotron p {
+    color: #f4f4f4;
+    }
+    header h1 {
+    font-size: 56px;
+    text-shadow: -5px 5px 0 rgba(0,0,0,0.1);
+    }
+    .form-item textarea{
+        width: 80%;
+        font-size: 14px;
+        height: 30px;
+        border: 1px solid #ededed;
+        padding: 5px;
+        border-radius: 3px;
+        outline: none;
+        line-height: 1;
+    }
+    ::-webkit-input-placeholder{
+        color: #ccc!important;
+        text-overflow: ellipsis;
+     }
+    .form-item textarea{
+        height: 180px;
+        font-size: 16px;
+        line-height: 1.2;
+        resize: none;
+    }
+    .form-btn{
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        background: #00e4ff;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+    }
+    .app-list, .hospital-list{
+        position: relative;
+        min-height: 60px;
+        margin-top:20px;
+    }
+    .loading{
+        width: 48px;
+        height: 48px;
+    }
+    .loading-container{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .hospital-list img{
+        height: 64px;
+        width: 64px;
+    }
+    .hospital-list h1{
+        display: inline-block;
+        line-height: 64px;
+    }
+    .hospital-list .post{
+        font-size: 20px;
+        border: none;
+        padding: 10px;
+    }
+    .bad-title{
+        position: relative;
+    }
+    .bad-add{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 32px;
+        display: block;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 1;
+        color: #ff3893;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        line-height: 31px;
+        right: 0;
+        border: 1px solid #ff3893;
+        cursor: pointer;
+    }
+    .bad-add:hover{
+        text-decoration: none;
+    }
+    .pop-wrap .save-btn {
+        margin-top: 10px;
+    }
+    </style>
+  </head>
+
+  <body>
+
+
+    <header class="jumbotron">
+
+        <h1>滚蛋吧莆田系</h1>
+        <br>
+        <p class="lead">一个有情怀的开发者，让搜索更简单,安全！</p>
+        <p><span class="package-amount">共收录了 <strong> 792 </strong> 家莆田系医院</span></p>
+        <div class="container">
+        <br>
+          <form class="" role="search">
+            <div class="form-group">
+            <input type="text" class="form-control search clearable" placeholder="搜索医院，地区，例如：北京" id="search-content"> <i class="fa x fa-search onX"></i>
+          </div>
+        </form>
+        </div>
+
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+            <div class="col-md-6">
+                <h2 class="bad-title">劣迹查询结果<a class="bad-add">+</a></h2>
+                <div class="app-list">
+                    <div class="loading-container">
+                        <div class="loading">
+                            <img src="./static/loading.gif">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>医院列表</h2>
+                <div class="hospital-list">
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container -->
+
+    <footer class="footer">
+        © 2018  
+    <a href="/badhosp">滚蛋吧莆田系</a>
+    <span class="ft-warn">♥</span>
+    星云链 <a href="https://incentive.nebulas.io/cn/signup.html?invite=To5wY" target="_blank">提交DAPP获得 100NAS 币</a>
+    </footer>
+    <div class="mask" style="display: none;"></div>
+    <div class="pop-layer" style="display: none;">
+        <div class="pop-wrap">
+            <div class="pop-center">
+                <div class="pw-bd">
+                    <p class="title">莆田系医院恶性事件</p>
+                    <p class="time">添加经历</p>
+                    <div class="form-item">
+                        <textarea class="form-desc" placeholder="您一定是莆田系医院的受害者，说出您的经历揭露它们吧，它将永久保存在星云链上～～～"></textarea>
+                    </div>
+                    <div class="form-item">
+                        <button class="form-btn save-btn">提  交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./static/jquery.min.js"></script>
+    <script src="./static/bootstrap.min.js"></script>
+    <script src="./static/bootstrap3-typeahead.min.js"></script>
+    <script src=static/search.json></script>
+    <script src=static/nebPay.js></script>
+    <script src=static/nebulas.js></script>
+    <script src="./static/search.js"></script>
+</body></html>
