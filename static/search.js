@@ -124,7 +124,7 @@
         //neb.setRequest(new nebulas.HttpRequest("https://testnet.nebulas.io"));
 
 
-        getData('北京京北医院 - 其他');
+        getAllData(100, 0);
         
         function getData(name){
             var from = Account.NewAccount().getAddressString();
@@ -134,6 +134,27 @@
             var gas_limit = "2000000"
             var callFunction = "get";
             var callArgs = "[\"" + name + "\"]"; //in the form of ["args"]
+            var contract = {
+                "function": callFunction,
+                "args": callArgs
+            }
+
+            neb.api.call(from,dappAddress,value,nonce,gas_price,gas_limit,contract).then(function (resp) {
+                searchRes(resp)
+            }).catch(function (err) {
+                //cbSearch(err)
+                console.log("error:" + err.message)
+            })
+        }
+
+        function getAllData(cnt, index){
+            var from = Account.NewAccount().getAddressString();
+            var value = "0";
+            var nonce = "0"
+            var gas_price = "1000000"
+            var gas_limit = "2000000"
+            var callFunction = "forEach";
+            var callArgs = "[\"" + cnt + "\", \""+ index + "\"]"; //in the form of ["args"]
             var contract = {
                 "function": callFunction,
                 "args": callArgs
